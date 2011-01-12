@@ -1,0 +1,50 @@
+= QuickLZ/Ruby
+
+Copyright (c) 2008 SUGAWARA Genki <sgwr_dts@yahoo.co.jp>
+
+== Description
+
+Ruby bindings for QuickLZ.
+
+QuickLZ is a data compression library which gives fast compression.
+
+== Source Code
+
+https://bitbucket.org/winebarrel/quick-ruby
+
+== Install
+
+gem install qlzruby
+
+== Example
+
+    require 'qlzruby'
+    require 'open-uri'
+    require 'stringio'
+    
+    source = <<-EOS
+    London Bridge Is falling down,
+    Falling down, Falling down.
+    London Bridge Is falling down,
+    My fair lady.
+    EOS
+    
+    comp_data = QuickLZ.compress(source)
+    decomp_data = QuickLZ.decompress(comp_data)
+    
+    puts <<-EOS
+    - block compress -
+    uncompress size: #{source.length}
+    compress size: #{comp_data.length}
+    decompress size: #{decomp_data.length}
+    decompress success?: #{source == decomp_data}
+    EOS
+
+=== QuickLZ
+
+QuickLZ/Ruby contains QuickLZ.
+
+QuickLZ is a data compression library which gives fast compression.
+
+* http://www.quicklz.com/
+* Copyright 2006-2008 Lasse Reinhold
